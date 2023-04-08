@@ -32,9 +32,13 @@ function Sidebar({
     };
 
     setListings([...listings, newListing]);
-    console.log('these are listings: ', listings);
     return;
   };
+
+  useEffect(() => {
+    console.log('these are listings: ', listings);
+  }, [listings]);
+
   return (
     <div>
       <form onSubmit={clickHandler}>
