@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface Listing {
-  id: HTMLInputElement;
+  id: string;
   jobTitle: string;
   company: string;
   progress?: string;

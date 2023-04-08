@@ -22,22 +22,26 @@ function Sidebar({
     // setListings
     // const enteredJobTitle = jobTitleInputRef.current;
     const newListing: Listing = {
-      id: idInputRef.current,
-      jobTitle: jobTitleInputRef.current,
-      company: companyInputRef.current,
-      progress: progressInputRef.current,
-      url: urlInputRef.current,
-      summary: summaryInputRef.current,
+      id: idInputRef.current!.value as unknown as string,
+      jobTitle: jobTitleInputRef.current!.value as unknown as string,
+      company: companyInputRef.current!.value as unknown as string,
+      progress: progressInputRef.current!.value as unknown as string,
+      url: urlInputRef.current!.value as unknown as string,
+      summary: summaryInputRef.current!.value as unknown as string,
       // date: Date;
     };
 
     setListings([...listings, newListing]);
-
+    console.log('these are listings: ', listings);
     return;
   };
   return (
     <div>
       <form onSubmit={clickHandler}>
+        <div>
+          <label htmlFor="id">ID Number</label>
+          <input type="text" required id="id" ref={idInputRef} />
+        </div>
         <div>
           <label htmlFor="jobTitle">Job Title</label>
           <input type="text" required id="jobTitle" ref={jobTitleInputRef} />
@@ -48,21 +52,16 @@ function Sidebar({
         </div>
         <div>
           <label htmlFor="progress">Progress</label>
-          <input type="text" required id="progress" ref={progressInputRef} />
+          <input type="text" id="progress" ref={progressInputRef} />
         </div>
         <div>
           <label htmlFor="url">URL Address</label>
           <input type="text" required id="url" ref={urlInputRef} />
         </div>
         <div>
-          <label htmlFor="id">ID Number</label>
-          <input type="text" required id="id" ref={idInputRef} />
-        </div>
-        <div>
           <label htmlFor="summary">Summary</label>
           <textarea
             id="summary"
-            required
             rows={5 as number}
             ref={summaryInputRef}
           ></textarea>
