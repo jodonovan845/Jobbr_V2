@@ -9,7 +9,7 @@ function MainPage() {
   return (
     <div>
       <Sidebar setListings={setListings} listings={listings} />
-      <JobContent />
+      <JobContent listings={listings} />
     </div>
   );
 }
